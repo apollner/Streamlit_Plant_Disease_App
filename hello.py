@@ -17,4 +17,4 @@ st.write('## Shalom')
 
 url = st.text_input("Enter Image Url:")
 
-    
+st.image(request.get(url))
