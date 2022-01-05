@@ -22,3 +22,6 @@ url = st.text_input("Enter Image Url:")
 if url:
     image = get_image(url)
     st.image(image)
+else:
+    st.write("Paste Image URL")
+    
