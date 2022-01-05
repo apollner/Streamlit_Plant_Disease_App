@@ -5,13 +5,13 @@ import requests
 st.write('# Hello World')
 st.write('## Shalom')
 
-def get_image(url):
-    img = requests.get(url)
-    file = open("sample_image.jpg", "wb")
-    file.write(img.content)
-    file.close()
-    img_file_name = 'sample_image.jpg'
-    return img_file_name
+#def get_image(url):
+    #img = requests.get(url)
+    #file = open("sample_image.jpg", "wb")
+   # file.write(img.content)
+    #file.close()
+   # img_file_name = 'sample_image.jpg'
+   # return img_file_name
 
 
 
