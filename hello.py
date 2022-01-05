@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 import requests
-
+from io import BytesIO
 st.write('# Hello World')
 st.write('## Shalom')
 
@@ -14,9 +14,11 @@ st.write('## Shalom')
    # return img_file_name
 url = st.text_input("Enter Image Url:")
 if url:
-    image = requests.get(url)
-    st.image(image)
+    response = requests.get(url)
+    img = Image.open(BytesIO(response.content))
+    st.image(img)
     
+
     
 else:
     st.write("Paste Image URL")
