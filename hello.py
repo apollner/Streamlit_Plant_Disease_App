@@ -1,6 +1,6 @@
 import streamlit as st
-#from PIL import Image
-#import requests
+from PIL import Image
+import requests
 
 st.write('# Hello World')
 st.write('## Shalom')
