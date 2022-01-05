@@ -12,9 +12,14 @@ st.write('## Shalom')
     #file.close()
    # img_file_name = 'sample_image.jpg'
    # return img_file_name
-
-
-
 url = st.text_input("Enter Image Url:")
-r=requests.get(url)
-st.image(r)
+if url:
+    image = requests.get(url)
+    st.image(image)
+    
+    
+else:
+    st.write("Paste Image URL")
+
+
+
