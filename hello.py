@@ -17,4 +17,4 @@ st.write('## Shalom')
 
 url = st.text_input("Enter Image Url:")
 
-st.image(requests.get(url))
+st.image(requests.get('https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg'))
