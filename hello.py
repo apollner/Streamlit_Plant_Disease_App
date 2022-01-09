@@ -81,9 +81,8 @@ if url:
     img = Image.open(BytesIO(response.content))
     st.image(img)
     classify = st.button("classify image")
-    file = tf.keras.utils.get_file(
-    "gfg-300x300.png",
-    "https://media.geeksforgeeks.org/wp-content/uploads/20210318103632/gfg-300x300.png")
+    file = tf.keras.utils.get_file(url.split("/")[-1],
+    url)
     if classify:
         st.write("")
         st.write("Classifying...")
