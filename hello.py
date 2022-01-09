@@ -84,18 +84,18 @@ if url:
     if classify:
         st.write("")
         st.write("Classifying...")
-        new_img = tf.keras.preprocessing.image.load_img(img, target_size=(224, 224))
-        img = tf.keras.preprocessing.image.img_to_array(new_img)
-        img = np.expand_dims(img, axis=0)
-        prediction = mobilenet_v3.predict(img)
+       # new_img = tf.keras.preprocessing.image.load_img(img, target_size=(224, 224))
+       # img = tf.keras.preprocessing.image.img_to_array(new_img)
+       # img = np.expand_dims(img, axis=0)
+       # prediction = mobilenet_v3.predict(img)
         #label = predict(img)
-        d = prediction.flatten()
-        j = d.max()
-        for index,item in enumerate(d):
-         if item == j:
-          class_name = class_names[index]
-        confidence = round(100 * j, 3)
-        st.write(f"P: {class_name}.\n Confidence: {confidence}%")
+       # d = prediction.flatten()
+       # j = d.max()
+      #  for index,item in enumerate(d):
+       #  if item == j:
+        #  class_name = class_names[index]
+      #  confidence = round(100 * j, 3)
+     #   st.write(f"P: {class_name}.\n Confidence: {confidence}%")
 else:
     st.write("Paste Image URL")
 
