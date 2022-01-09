@@ -52,7 +52,7 @@ class_names=['Apple___Apple_scab',
 
 # To predict the image
 #def predict(image1): 
-  #  mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
+  #  mobilenet_v3 = tf.keras.models.load_model(('./mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
     
  #   new_img = tf.keras.preprocessing.image.load_img(image1, target_size=(224, 224))
  #   img = tf.keras.preprocessing.image.img_to_array(new_img)
