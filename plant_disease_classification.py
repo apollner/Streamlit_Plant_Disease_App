@@ -54,7 +54,8 @@ st.write('### Paste below the url of a leaf image ')
 
 st.write('It works best with images from this link https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
 st.write('Following is the list of possible classes:')
-st.write(class_names)
+
+st.write(str(class_names))
 url = st.text_input("Enter Image Url:")
 if url:
     response = requests.get(url)
