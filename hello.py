@@ -7,6 +7,7 @@ from keras.preprocessing.image import img_to_array
 from keras.applications.vgg16 import preprocess_input
 from keras.applications.vgg16 import decode_predictions
 from keras.applications.vgg16 import VGG16
+from img_classification import classification
 
 # To predict the image
 def predict(image1): 
@@ -37,7 +38,7 @@ if url:
     if classify:
         st.write("")
         st.write("Classifying...")
-        label = predict(img)
+        label = classification(img,)
         st.write('%s (%.2f%%)' % (label[1], label[2]*100))
 else:
     st.write("Paste Image URL")
