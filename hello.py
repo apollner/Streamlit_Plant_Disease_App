@@ -82,8 +82,8 @@ if url:
     st.image(img)
     classify = st.button("classify image")
     file = tf.keras.utils.get_file(
-    "grace_hopper.jpg",
-    "https://storage.googleapis.com/download.tensorflow.org/example_images/grace_hopper.jpg")
+    "gfg.png",
+    "https://media.geeksforgeeks.org/wp-content/uploads/20210318103632/gfg-300x300.png")
     if classify:
         st.write("")
         st.write("Classifying...")
