@@ -81,10 +81,13 @@ if url:
     img = Image.open(BytesIO(response.content))
     st.image(img)
     classify = st.button("classify image")
+    file = tf.keras.utils.get_file(
+    "grace_hopper.jpg",
+    "https://storage.googleapis.com/download.tensorflow.org/example_images/grace_hopper.jpg")
     if classify:
         st.write("")
         st.write("Classifying...")
-        new_img = tf.keras.preprocessing.image.load_img(response, target_size=(224, 224))
+        new_img = tf.keras.preprocessing.image.load_img(file, target_size=(224, 224))
         img = tf.keras.preprocessing.image.img_to_array(new_img)
         img = np.expand_dims(img, axis=0)
         prediction = mobilenet_v3.predict(img)
