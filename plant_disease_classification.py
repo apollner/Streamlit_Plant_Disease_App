@@ -53,9 +53,7 @@ st.write('# Welcome to the PlantVillage leaf disease classifier')
 st.write('### Paste below the url of a leaf image ')
 
 st.write('It works best with images from this link https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
-st.write('Following is the list of possible classes:')
-for i in class_names:
- st.write(i)
+
 url = st.text_input("Enter Image Url:")
 if url:
     response = requests.get(url)
