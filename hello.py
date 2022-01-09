@@ -2,6 +2,7 @@ import streamlit as st
 from PIL import Image
 import requests
 from io import BytesIO
+import tensorflow as tf
 from keras.preprocessing.image import load_img
 from keras.preprocessing.image import img_to_array
 from keras.applications.vgg16 import preprocess_input
@@ -50,27 +51,27 @@ class_names=['Apple___Apple_scab',
  'Tomato___healthy']
 
 # To predict the image
-def predict(image1): 
-    mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
+#def predict(image1): 
+  #  mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
     
-    new_img = tf.keras.preprocessing.image.load_img(image1, target_size=(224, 224))
-    img = tf.keras.preprocessing.image.img_to_array(new_img)
-    img = np.expand_dims(img, axis=0)
+ #   new_img = tf.keras.preprocessing.image.load_img(image1, target_size=(224, 224))
+ #   img = tf.keras.preprocessing.image.img_to_array(new_img)
+ #   img = np.expand_dims(img, axis=0)
 
 
     #print("Following is our prediction:")
-    prediction = mobilenet_v3.predict(img)
+ #   prediction = mobilenet_v3.predict(img)
 
-    d = prediction.flatten()
-    j = d.max()
-    for index,item in enumerate(d):
-        if item == j:
-            class_name = class_names[index]
+ #   d = prediction.flatten()
+  #  j = d.max()
+  #  for index,item in enumerate(d):
+  #      if item == j:
+      #      class_name = class_names[index]
 
-    confidence = round(100 * j, 3)
+   # confidence = round(100 * j, 3)
     
-    return class_name,confidence  
-
+   # return class_name,confidence  
+mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
 st.write('# Hello World')
 st.write('## Shalom')
 url = st.text_input("Enter Image Url:")
@@ -82,8 +83,18 @@ if url:
     if classify:
         st.write("")
         st.write("Classifying...")
-        label = predict(img)
-        st.write('%s (%.2f%%)' % (label[1], label[2]*100))
+        new_img = tf.keras.preprocessing.image.load_img(img, target_size=(224, 224))
+        img = tf.keras.preprocessing.image.img_to_array(new_img)
+        img = np.expand_dims(img, axis=0)
+        prediction = mobilenet_v3.predict(img)
+        #label = predict(img)
+        d = prediction.flatten()
+        j = d.max()
+        for index,item in enumerate(d):
+         if item == j:
+          class_name = class_names[index]
+        confidence = round(100 * j, 3)
+        st.write(f"P: {class_name}.\n Confidence: {confidence}%")
 else:
     st.write("Paste Image URL")
 
