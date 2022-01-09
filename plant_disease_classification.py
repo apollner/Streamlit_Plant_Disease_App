@@ -49,7 +49,10 @@ class_names=['Apple___Apple_scab',
 
 mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
 st.write('# Welcome to the PlantVillage leaf disease classifier')
-st.write('## Paste below the url of a leaf check out this [link]https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
+
+st.write('### Paste below the url of a leaf image ')
+
+st.write('It works best with images from this link https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
 url = st.text_input("Enter Image Url:")
 if url:
     response = requests.get(url)
