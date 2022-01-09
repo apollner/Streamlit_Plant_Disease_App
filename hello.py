@@ -84,7 +84,7 @@ if url:
     if classify:
         st.write("")
         st.write("Classifying...")
-        new_img = tf.keras.preprocessing.image.load_img(img, target_size=(224, 224))
+        new_img = tf.keras.preprocessing.image.load_img(response, target_size=(224, 224))
         img = tf.keras.preprocessing.image.img_to_array(new_img)
         img = np.expand_dims(img, axis=0)
         prediction = mobilenet_v3.predict(img)
