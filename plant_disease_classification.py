@@ -5,10 +5,6 @@ from io import BytesIO
 import tensorflow as tf
 from keras.preprocessing.image import load_img
 from keras.preprocessing.image import img_to_array
-from keras.applications.vgg16 import preprocess_input
-from keras.applications.vgg16 import decode_predictions
-from keras.applications.vgg16 import VGG16
-from img_classification import classification
 import numpy as np
 import tensorflow_hub as hub
 
@@ -51,27 +47,6 @@ class_names=['Apple___Apple_scab',
  'Tomato___Tomato_mosaic_virus',
  'Tomato___healthy']
 
-# To predict the image
-#def predict(image1): 
-  #  mobilenet_v3 = tf.keras.models.load_model(('./mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
-    
- #   new_img = tf.keras.preprocessing.image.load_img(image1, target_size=(224, 224))
- #   img = tf.keras.preprocessing.image.img_to_array(new_img)
- #   img = np.expand_dims(img, axis=0)
-
-
-    #print("Following is our prediction:")
- #   prediction = mobilenet_v3.predict(img)
-
- #   d = prediction.flatten()
-  #  j = d.max()
-  #  for index,item in enumerate(d):
-  #      if item == j:
-      #      class_name = class_names[index]
-
-   # confidence = round(100 * j, 3)
-    
-   # return class_name,confidence  
 mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
 st.write('# Hello World')
 st.write('## Shalom')
@@ -90,7 +65,6 @@ if url:
         img = tf.keras.preprocessing.image.img_to_array(new_img)
         img = np.expand_dims(img, axis=0)
         prediction = mobilenet_v3.predict(img)
-        #label = predict(img)
         d = prediction.flatten()
         j = d.max()
         for index,item in enumerate(d):
