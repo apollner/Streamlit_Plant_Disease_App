@@ -91,7 +91,7 @@ if url:
         img = tf.keras.preprocessing.image.img_to_array(new_img)
         img = np.expand_dims(img, axis=0)
         prediction = mobilenet_v3.predict(img)
-        label = predict(img)
+        #label = predict(img)
         d = prediction.flatten()
         j = d.max()
         for index,item in enumerate(d):
