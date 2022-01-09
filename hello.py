@@ -10,6 +10,7 @@ from keras.applications.vgg16 import decode_predictions
 from keras.applications.vgg16 import VGG16
 from img_classification import classification
 import numpy as np
+import tensorflow_hub as hub
 
 class_names=['Apple___Apple_scab',
  'Apple___Black_rot',
