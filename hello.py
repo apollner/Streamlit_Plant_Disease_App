@@ -72,7 +72,7 @@ class_names=['Apple___Apple_scab',
    # confidence = round(100 * j, 3)
     
    # return class_name,confidence  
-mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
+#mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
 st.write('# Hello World')
 st.write('## Shalom')
 url = st.text_input("Enter Image Url:")
@@ -80,10 +80,10 @@ if url:
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
     st.image(img)
-    classify = st.button("classify image")
-    if classify:
-        st.write("")
-        st.write("Classifying...")
+    #classify = st.button("classify image")
+    #if classify:
+       # st.write("")
+       # st.write("Classifying...")
        # new_img = tf.keras.preprocessing.image.load_img(img, target_size=(224, 224))
        # img = tf.keras.preprocessing.image.img_to_array(new_img)
        # img = np.expand_dims(img, axis=0)
