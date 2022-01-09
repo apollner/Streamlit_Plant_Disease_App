@@ -38,7 +38,7 @@ if url:
     if classify:
         st.write("")
         st.write("Classifying...")
-        label = classification(img,)
+        label = classification(img,'mobilenet_v3_large_100_224.h5')
         st.write('%s (%.2f%%)' % (label[1], label[2]*100))
 else:
     st.write("Paste Image URL")
