@@ -81,7 +81,7 @@ if url:
 elif upload:
     #content = upload.getvalue()
    	bytes_data = upload.read()
-    st.image(upload)
+    #st.image(upload)
     file = Image.open(BytesIO(bytes_data))
     classify = st.button("classify image")
     if classify:
