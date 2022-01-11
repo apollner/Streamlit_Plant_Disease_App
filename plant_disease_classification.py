@@ -83,8 +83,8 @@ elif upload:
   bytes_data = upload.read()
   st.image(upload)
   file = Image.open(BytesIO(content))
-  classify = st.button("classify image from file")
-  if classify:
+  classify2 = st.button("classify image from file")
+  if classify2:
         st.write("")
         st.write("Classifying...")
         img = file.resize((224, 224), Image.ANTIALIAS)
