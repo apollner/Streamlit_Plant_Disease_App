@@ -62,11 +62,10 @@ if url:
     img = Image.open(BytesIO(response.content))
     st.image(img)
     classify = st.button("classify image from URL")
-    
     if classify:
         st.write("")
         st.write("Classifying...")
-        img = file.resize((224, 224), Image.ANTIALIAS)
+        img = img.resize((224, 224), Image.ANTIALIAS)
         img = tf.keras.preprocessing.image.img_to_array(img)
         img = np.expand_dims(img, axis=0)
         prediction = mobilenet_v3.predict(img)
