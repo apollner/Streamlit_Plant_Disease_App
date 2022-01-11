@@ -79,8 +79,8 @@ if url:
         confidence = round(100 * j, 3)
         st.write(f"P: {class_name}.\n Confidence: {confidence}%")
 elif upload:
-    img = Image.open(BytesIO(upload))
-    st.image(img)
+    
+    st.image(upload)
     classify = st.button("classify image")
     if classify:
         st.write("")
