@@ -80,11 +80,11 @@ if url:
         st.write(f"P: {class_name}.\n Confidence: {confidence}%")
 elif upload:
     #content = upload.getvalue()
-   	bytes_data = upload.read()
+  bytes_data = upload.read()
     #st.image(upload)
-    file = Image.open(BytesIO(bytes_data))
-    classify = st.button("classify image")
-    if classify:
+  file = Image.open(BytesIO(bytes_data))
+  classify = st.button("classify image")
+  if classify:
         st.write("")
         st.write("Classifying...")
         new_img = tf.keras.preprocessing.image.load_img(file, target_size=(224, 224))
