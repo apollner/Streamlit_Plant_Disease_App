@@ -50,12 +50,12 @@ df = pd.DataFrame(class_names,columns =['Categories'])
 
 mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
 st.write('# Welcome to the PlantVillage leaf disease classifier')
-st.write('### The PlantVillage dataset consist of the following 38 categories of plants/diseases')
+st.write('### The PlantVillage dataset consist of the following 38 categories of plants/diseases:')
 st.table(df)
-st.write('#### Paste below the url of a leaf image ')
 
-st.write('For good results use images that only have one leave in it like the ones that are here: https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
-st.write('Enter a url or upload an image')
+
+st.write('For best results use images with only have one leaf like the ones here: https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
+st.write('####Enter a url or upload an image')
 url = st.text_input("Enter Image Url:")
 st.write('or')
 upload = st.file_uploader("Please upload an image")
