@@ -80,7 +80,7 @@ elif upload:
   content = upload.getvalue()
   bytes_data = upload.read()
   st.image(upload)
-  file = Image.open(BytesIO(content))
+  file = Image.open(BytesIO(upload))
   classify2 = st.button("classify image from file")
   if classify2:
         st.write("")
