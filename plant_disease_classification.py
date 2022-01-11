@@ -101,7 +101,7 @@ elif upload:
  
 else:
     st.write("Paste Image URL or Upload Image")
-st.write("**When using urls from google images beware that not always the image shown corresponds to the actual species you query**")
+st.write("**_When using urls from google images beware that not always the image shown corresponds to the actual species you query_**")
 
 
 
