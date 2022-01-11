@@ -46,7 +46,7 @@ class_names=['Apple___Apple_scab',
  'Tomato___Tomato_Yellow_Leaf_Curl_Virus',
  'Tomato___Tomato_mosaic_virus',
  'Tomato___healthy']
-df = pd.DataFrame(class_names,index=False,columns =['Names'])
+df = pd.DataFrame(class_names,columns =['Names'])
 df.Names
 
 mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
