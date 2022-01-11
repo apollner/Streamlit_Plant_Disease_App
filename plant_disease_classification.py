@@ -55,7 +55,7 @@ st.table(df)
 
 
 st.write('For best results use images with only have one leaf like the ones here: https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
-st.write('####Enter a url or upload an image')
+st.write('#### Enter a url or upload an image')
 url = st.text_input("Enter Image Url:")
 st.write('or')
 upload = st.file_uploader("Please upload an image")
