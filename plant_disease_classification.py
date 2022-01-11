@@ -68,7 +68,7 @@ if url:
         st.write("")
         st.write("Classifying...")
         new_img = tf.keras.preprocessing.image.load_img(file, target_size=(224, 224))
-        img = tf.keras.preprocessing.image.img_to_array(new_img)
+        img = tf.keras.preprocessing.image.img_to_array(img)
         img = np.expand_dims(img, axis=0)
         prediction = mobilenet_v3.predict(img)
         d = prediction.flatten()
