@@ -7,7 +7,7 @@ from keras.preprocessing.image import load_img
 from keras.preprocessing.image import img_to_array
 import numpy as np
 import tensorflow_hub as hub
-
+import pandas as pd
 class_names=['Apple___Apple_scab',
  'Apple___Black_rot',
  'Apple___Cedar_apple_rust',
@@ -46,7 +46,8 @@ class_names=['Apple___Apple_scab',
  'Tomato___Tomato_Yellow_Leaf_Curl_Virus',
  'Tomato___Tomato_mosaic_virus',
  'Tomato___healthy']
-st.markdown(class_names)
+df = pd.DataFrame(class_names)
+st.markdown(df)
 
 mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
 st.write('# Welcome to the PlantVillage leaf disease classifier')
