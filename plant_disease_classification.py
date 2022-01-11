@@ -62,12 +62,11 @@ if url:
     img = Image.open(BytesIO(response.content))
     st.image(img)
     classify = st.button("classify image from URL")
-    file = tf.keras.utils.get_file(url.split("/")[-1],
-    url)
+    
     if classify:
         st.write("")
         st.write("Classifying...")
-        new_img = tf.keras.preprocessing.image.load_img(file, target_size=(224, 224))
+        img = file.resize((224, 224), Image.ANTIALIAS)
         img = tf.keras.preprocessing.image.img_to_array(img)
         img = np.expand_dims(img, axis=0)
         prediction = mobilenet_v3.predict(img)
@@ -87,7 +86,6 @@ elif upload:
   if classify:
         st.write("")
         st.write("Classifying...")
-        #new_img = tf.keras.preprocessing.image.load_img(upload, target_size=(224, 224))
         img = file.resize((224, 224), Image.ANTIALIAS)
         img = tf.keras.preprocessing.image.img_to_array(img)
         img = np.expand_dims(img, axis=0)
