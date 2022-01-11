@@ -61,7 +61,7 @@ if url:
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
     st.image(img)
-    classify = st.button("classify image")
+    classify = st.button("classify image from URL")
     file = tf.keras.utils.get_file(url.split("/")[-1],
     url)
     if classify:
@@ -83,7 +83,7 @@ elif upload:
   bytes_data = upload.read()
   st.image(upload)
   file = Image.open(BytesIO(bytes_data))
-  classify = st.button("classify image")
+  classify = st.button("classify image from file")
   if classify:
         st.write("")
         st.write("Classifying...")
