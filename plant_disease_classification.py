@@ -55,6 +55,8 @@ st.write('#### Paste below the url of a leaf image ')
 st.write('It works best with images from this link https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
 
 url = st.text_input("Enter Image Url:")
+st.write('or')
+upload = st.file_uploader("Please upload an image")
 if url:
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
@@ -76,8 +78,27 @@ if url:
           class_name = class_names[index]
         confidence = round(100 * j, 3)
         st.write(f"P: {class_name}.\n Confidence: {confidence}%")
+elif upload:
+    img = Image.open(BytesIO(upload))
+    st.image(img)
+    classify = st.button("classify image")
+    if classify:
+        st.write("")
+        st.write("Classifying...")
+        new_img = tf.keras.preprocessing.image.load_img(upload, target_size=(224, 224))
+        img = tf.keras.preprocessing.image.img_to_array(new_img)
+        img = np.expand_dims(img, axis=0)
+        prediction = mobilenet_v3.predict(img)
+        d = prediction.flatten()
+        j = d.max()
+        for index,item in enumerate(d):
+         if item == j:
+          class_name = class_names[index]
+        confidence = round(100 * j, 3)
+        st.write(f"P: {class_name}.\n Confidence: {confidence}%")
+ 
 else:
-    st.write("Paste Image URL")
+    st.write("Paste Image URL or Upload Image")
 
 
 
