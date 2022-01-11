@@ -79,7 +79,7 @@ if url:
         confidence = round(100 * j, 3)
         st.write(f"P: {class_name}.\n Confidence: {confidence}%")
 elif upload:
-    #content = upload.getvalue()
+  content = upload.getvalue()
   bytes_data = upload.read()
   st.image(upload)
   file = Image.open(BytesIO(bytes_data))
@@ -88,7 +88,7 @@ elif upload:
         st.write("")
         st.write("Classifying...")
         #new_img = tf.keras.preprocessing.image.load_img(upload, target_size=(224, 224))
-        img = tf.keras.preprocessing.image.img_to_array(upload)
+        img = tf.keras.preprocessing.image.img_to_array(file)
         img = np.expand_dims(img, axis=0)
         prediction = mobilenet_v3.predict(img)
         d = prediction.flatten()
