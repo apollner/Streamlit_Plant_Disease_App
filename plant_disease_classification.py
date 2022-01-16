@@ -58,7 +58,7 @@ st.write('### The PlantVillage dataset consist of the following 38 categories of
 pyplot.figure(figsize=(10, 10))
 
 for i,pic in enumerate(os.listdir("./leaves_examples/")):
- image = Image.open(pic)
+ image = Image.open("./leaves_examples/"+pic)
 
  st.image(image, caption='Sunrise by the mountains')
 
