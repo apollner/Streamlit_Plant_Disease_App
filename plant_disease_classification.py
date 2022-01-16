@@ -61,7 +61,7 @@ for i,pic in enumerate('leaves_examples'):
  ax = pyplot.subplot(2, 19, i+1)
  pyplot.title(class_names[i])
  pyplot.axis("off")
- st.write(f"{i}")
+ st.write(f"{pic}")
 #st.table(df)
 
 st.write('#### Enter a url or upload an image')
