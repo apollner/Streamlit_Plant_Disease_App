@@ -60,12 +60,12 @@ pyplot.figure(figsize=(10, 10))
 for i,pic in enumerate(os.listdir("./leaves_examples/")):
  image = Image.open("./leaves_examples/"+pic)
 
- st.image(image, caption='Sunrise by the mountains')
+ st.image(image, caption=f"{pic}")
 
  ax = pyplot.subplot(2, 19, i+1)
  pyplot.title(class_names[i])
  pyplot.axis("off")
- st.write(f"{pic}")
+ #st.write(f"{pic}")
 #st.table(df)
 
 st.write('#### Enter a url or upload an image')
