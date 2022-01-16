@@ -48,7 +48,7 @@ class_names=['Apple___Apple_scab',
  'Tomato___Tomato_Yellow_Leaf_Curl_Virus',
  'Tomato___Tomato_mosaic_virus',
  'Tomato___healthy']
-df = pd.DataFrame(class_names,columns =['Categories'])
+#df = pd.DataFrame(class_names,columns =['Categories'])
 
 mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
 
@@ -62,27 +62,17 @@ def plaintxt(name):
  name=' '.join(dict.fromkeys(name.split()))
  name=name.capitalize() 
  return name
+
 pic_list=[]
 classes=[]
+
 for pic in os.listdir("./leaves_examples/"):
  image = Image.open("./leaves_examples/"+pic)
  pic_list.append(image)
  pic=pic.split(".")[0]
- #pic = pic.replace("___", " ")
- #pic = pic.replace("_", " ")
- #pic=' '.join(dict.fromkeys(pic.split()))
-# pic=pic.capitalize() 
  classes.append(plaintxt(pic))
  
 st.image(pic_list,caption=classes,width=100)
- 
-
- #ax=plt.subplot(2, 19, i+1)
- #st.pyplot.title(class_names[i])
- #st.pyplot.axis("off")
- #st.write(f"{pic}")
-#st.table(df)
-
 
 st.write('#### Enter a url or upload an image')
 st.write('For best results use images showing one leaf like the ones here: https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
@@ -115,8 +105,6 @@ if url:
     classify = st.button("Classify Image from URL")
     if classify:
      classification(img)
-
-        
         
 elif upload:
   content = upload.getvalue()
@@ -125,19 +113,7 @@ elif upload:
   file = Image.open(BytesIO(content))
   classify2 = st.button("classify image from file")
   if classify2:
-        st.write("")
-        st.write("Classifying...")
-        img = file.resize((224, 224), Image.ANTIALIAS)
-        img = tf.keras.preprocessing.image.img_to_array(img)
-        img = np.expand_dims(img, axis=0)
-        prediction = mobilenet_v3.predict(img)
-        d = prediction.flatten()
-        j = d.max()
-        for index,item in enumerate(d):
-         if item == j:
-          class_name = class_names[index]
-        confidence = round(100 * j, 3)
-        st.write(f"Name: {class_name}.\n Confidence: {confidence}%")
+   classification(img)
  
 else:
     st.write("Paste Image URL or Upload Image")
