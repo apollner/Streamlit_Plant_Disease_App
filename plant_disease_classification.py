@@ -108,7 +108,7 @@ if url:
          if item == j:
           class_name = class_names[index]
         confidence = round(100 * j, 3)
-        st.write("#### plaintxt(class_name)")
+        st.write("#### f"Name: plaintxt(class_name)"")
         st.write(f"Confidence: {confidence}%")
         
 elif upload:
