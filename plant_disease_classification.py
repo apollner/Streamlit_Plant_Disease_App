@@ -100,8 +100,6 @@ if url:
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
     st.image(img)
-    img = tf.keras.utils.get_file(url.split("/")[-1],
-    url)
     classify = st.button("Classify Image from URL")
     if classify:
      classification(img)
