@@ -61,7 +61,7 @@ pic_list=[]
 for pic in os.listdir("./leaves_examples/"):
  image = Image.open("./leaves_examples/"+pic)
  pic_list.append(image)
- st.write(f"{image}")
+ st.write(f"{pic}")
 st.image(pic_list,width=100)
  
 
