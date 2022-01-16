@@ -90,12 +90,7 @@ url = st.text_input("Enter Image Url:")
 st.write('or')
 upload = st.file_uploader("Please Upload Image(JPG/JPEG):")
 
-if url:
-    response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
-    st.image(img)
-    classify = st.button("Classify Image from URL")
-    if classify:
+def classification(img):
         st.write("")
         st.write("Classifying...")
         img = img.resize((224, 224), Image.ANTIALIAS)
@@ -108,10 +103,19 @@ if url:
          if item == j:
           class_name = plaintxt(class_names[index])
         confidence = round(100 * j, 3)
-        html_str = f"""<style>p.a {{  font: bold 20px sans-serif;}}</style><p class="a">Name:{class_name}</p>"""
+        html_str = f"""<style>p.a {{  font: bold 20px sans-serif;}}</style><p class="a">Name: {class_name}</p>"""
         st.markdown(html_str, unsafe_allow_html=True)
-        html_str = f"""<style>p.a {{  font: bold 20px sans-serif;}}</style><p class="a">Confidence:{confidence}%</p>"""
+        html_str = f"""<style>p.a {{  font: bold 20px sans-serif;}}</style><p class="a">Confidence: {confidence}%</p>"""
         st.markdown(html_str, unsafe_allow_html=True)
+ 
+if url:
+    response = requests.get(url)
+    img = Image.open(BytesIO(response.content))
+    st.image(img)
+    classify = st.button("Classify Image from URL")
+    if classify:
+     classification(img)
+
         
         
 elif upload:
