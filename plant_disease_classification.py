@@ -60,7 +60,6 @@ def plaintxt(name):
  name = name.replace("___", " ")
  name = name.replace("_", " ")
  name=' '.join(dict.fromkeys(name.split())).capitalize() 
- 
  return name
 
 pic_list=[]
