@@ -129,7 +129,7 @@ elif upload:
          if item == j:
           class_name = class_names[index]
         confidence = round(100 * j, 3)
-        st.write(f"P: {class_name}.\n Confidence: {confidence}%")
+        st.write(f"Name: {class_name}.\n Confidence: {confidence}%")
  
 else:
     st.write("Paste Image URL or Upload Image")
