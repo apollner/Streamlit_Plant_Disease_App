@@ -8,6 +8,7 @@ from keras.preprocessing.image import img_to_array
 import numpy as np
 import tensorflow_hub as hub
 import pandas as pd
+import matplotlib.pyplot as plt
 class_names=['Apple___Apple_scab',
  'Apple___Black_rot',
  'Apple___Cedar_apple_rust',
@@ -49,9 +50,17 @@ class_names=['Apple___Apple_scab',
 df = pd.DataFrame(class_names,columns =['Categories'])
 
 mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
+
 st.write('# Welcome to the PlantVillage leaf disease classifier')
 st.write('### The PlantVillage dataset consist of the following 38 categories of plants/diseases:')
-st.table(df)
+
+plt.figure(figsize=(10, 10))
+for i,pic in enumerate(leaves_examples):
+ ax = plt.subplot(2, 19, i+1)
+ plt.title(class_names[i])
+ plt.axis("off")
+#st.table(df)
+
 st.write('#### Enter a url or upload an image')
 st.write('For best results use images showing one leaf like the ones here: https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
 url = st.text_input("Enter Image Url:")
