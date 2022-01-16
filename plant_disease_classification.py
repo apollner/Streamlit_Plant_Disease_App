@@ -108,7 +108,7 @@ if url:
          if item == j:
           class_name = plaintxt(class_names[index])
         confidence = round(100 * j, 3)
-        original_title = '<p style="font-family:Courier; color:Blue; font-size: 20px;">class_name</p>'
+        original_title = '<p style="font-family:Courier; color:Blue; font-size: 20px;">f"Name: {class_name}"</p>'
         st.markdown(original_title, unsafe_allow_html=True)
         st.write("#### class_name")
         st.write(f"Confidence: {confidence}%")
