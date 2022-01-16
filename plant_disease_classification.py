@@ -59,8 +59,8 @@ st.write('### The PlantVillage dataset consist of the following 38 categories of
 def plaintxt(name):
  name = name.replace("___", " ")
  name = name.replace("_", " ")
- name=' '.join(dict.fromkeys(name.split()))
- name=name.capitalize() 
+ name=' '.join(dict.fromkeys(name.split())).capitalize() 
+ 
  return name
 
 pic_list=[]
