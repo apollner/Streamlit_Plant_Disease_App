@@ -9,6 +9,7 @@ import numpy as np
 import tensorflow_hub as hub
 import pandas as pd
 from matplotlib import pyplot
+import os
 class_names=['Apple___Apple_scab',
  'Apple___Black_rot',
  'Apple___Cedar_apple_rust',
