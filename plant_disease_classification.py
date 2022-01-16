@@ -60,7 +60,7 @@ pic_list=[]
 for pic in os.listdir("./leaves_examples/"):
  image = Image.open("./leaves_examples/"+pic)
  pic_list.append(image)
- st.image(image, caption=pic.split(".")[0],width=100)
+st.image(pic_list, caption=pic.split(".")[0],width=100)
  
 
  #ax=plt.subplot(2, 19, i+1)
