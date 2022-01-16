@@ -113,7 +113,7 @@ elif upload:
   file = Image.open(BytesIO(content))
   classify2 = st.button("classify image from file")
   if classify2:
-   classification(img)
+   classification(file)
  
 else:
     st.write("Paste Image URL or Upload Image")
