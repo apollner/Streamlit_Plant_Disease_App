@@ -94,7 +94,7 @@ if url:
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
     st.image(img)
-    classify = st.button("classify image from URL")
+    classify = st.button("Classify Image from URL")
     if classify:
         st.write("")
         st.write("Classifying...")
@@ -108,9 +108,9 @@ if url:
          if item == j:
           class_name = plaintxt(class_names[index])
         confidence = round(100 * j, 3)
-        html_str = f"""<style>p.a {{  font: bold 20px sans-serif;}}</style><p class="a">{class_name}</p>"""
+        html_str = f"""<style>p.a {{  font: bold 20px sans-serif;}}</style><p class="a">Name:{class_name}</p>"""
         st.markdown(html_str, unsafe_allow_html=True)
-        html_str = f"""<style>p.a {{  font: bold 20px sans-serif;}}</style><p class="a">{confidence}%</p>"""
+        html_str = f"""<style>p.a {{  font: bold 20px sans-serif;}}</style><p class="a">Confidence:{confidence}%</p>"""
         st.markdown(html_str, unsafe_allow_html=True)
         
         
