@@ -55,7 +55,8 @@ st.write('# Welcome to the PlantVillage leaf disease classifier')
 st.write('### The PlantVillage dataset consist of the following 38 categories of plants/diseases:')
 
 pyplot.figure(figsize=(10, 10))
-for i,pic in enumerate(leaves_examples):
+
+for i,pic in enumerate('leaves_examples'):
  ax = pyplot.subplot(2, 19, i+1)
  pyplot.title(class_names[i])
  pyplot.axis("off")
