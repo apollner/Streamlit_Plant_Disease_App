@@ -55,18 +55,24 @@ mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),cust
 st.write('# Welcome to the PlantVillage leaf disease classifier')
 st.write('### The PlantVillage dataset consist of the following 38 categories of plants/diseases:')
 
-plt.figure(figsize=(50, 50))
+#plt.figure(figsize=(50, 50))
+def plaintxt(name):
+ name = name.replace("___", " ")
+ name = name.replace("_", " ")
+ name=' '.join(dict.fromkeys(name.split()))
+ name=name.capitalize() 
+ return name
 pic_list=[]
 classes=[]
 for pic in os.listdir("./leaves_examples/"):
  image = Image.open("./leaves_examples/"+pic)
  pic_list.append(image)
  pic=pic.split(".")[0]
- pic = pic.replace("___", " ")
- pic = pic.replace("_", " ")
- pic=' '.join(dict.fromkeys(pic.split()))
- pic=pic.capitalize() 
- classes.append(pic)
+ #pic = pic.replace("___", " ")
+ #pic = pic.replace("_", " ")
+ #pic=' '.join(dict.fromkeys(pic.split()))
+# pic=pic.capitalize() 
+ classes.append(plaintxt(pic))
  
 st.image(pic_list,caption=classes,width=100)
  
