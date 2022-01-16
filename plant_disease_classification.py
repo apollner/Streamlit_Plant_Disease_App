@@ -60,7 +60,7 @@ pyplot.figure(figsize=(10, 10))
 for i,pic in enumerate(os.listdir("./leaves_examples/")):
  image = Image.open("./leaves_examples/"+pic)
 
- st.image(image, caption=f"{pic.split(".")[0]}")
+ st.image(image, caption=pic.split(".")[0])
 
  ax = pyplot.subplot(2, 19, i+1)
  pyplot.title(class_names[i])
