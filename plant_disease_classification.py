@@ -10,6 +10,7 @@ import tensorflow_hub as hub
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+
 class_names=['Apple___Apple_scab',
  'Apple___Black_rot',
  'Apple___Cedar_apple_rust',
@@ -48,14 +49,10 @@ class_names=['Apple___Apple_scab',
  'Tomato___Tomato_Yellow_Leaf_Curl_Virus',
  'Tomato___Tomato_mosaic_virus',
  'Tomato___healthy']
-#df = pd.DataFrame(class_names,columns =['Categories'])
-
-mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
 
 st.write('# Welcome to the PlantVillage leaf disease classifier')
 st.write('### The PlantVillage dataset consist of the following 38 categories of plants/diseases:')
 
-#plt.figure(figsize=(50, 50))
 def plaintxt(name):
  name = name.replace("___", " ")
  name = name.replace("_", " ")
@@ -71,13 +68,15 @@ for pic in os.listdir("./leaves_examples/"):
  pic=pic.split(".")[0]
  classes.append(plaintxt(pic))
 
-st.image(pic_list,caption=classes,width=150)
+st.image(pic_list,caption=classes,width=100)
 
 st.write('#### Enter a url or upload an image')
 st.write('For best results use images showing one leaf like the ones here: https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
 url = st.text_input("Enter Image Url:")
 st.write('or')
 upload = st.file_uploader("Please Upload Image(JPG/JPEG):")
+
+mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
 
 def classification(img):
         st.write("")
@@ -116,6 +115,7 @@ elif upload:
  
 else:
     st.write("Paste Image URL or Upload Image")
+  
 st.write("**_When using urls from google images beware that not always the image shown corresponds to the actual species you query_**")
 
 
