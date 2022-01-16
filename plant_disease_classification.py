@@ -63,6 +63,7 @@ for pic in os.listdir("./leaves_examples/"):
  pic_list.append(image)
  pic=pic.split(".")[0]
  pic = pic.replace("___", " ")
+ pic = pic.replace("_", " ")
  classes.append(pic)
  
 st.image(pic_list,caption=classes,width=100)
