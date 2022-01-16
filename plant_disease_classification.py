@@ -56,18 +56,17 @@ st.write('# Welcome to the PlantVillage leaf disease classifier')
 st.write('### The PlantVillage dataset consist of the following 38 categories of plants/diseases:')
 
 plt.figure(figsize=(50, 50))
+pic_list=[]
+for pic in enumerate(os.listdir("./leaves_examples/")):
+ pic_list.append(Image.open("./leaves_examples/"+pic))
+ 
 
-for i,pic in enumerate(os.listdir("./leaves_examples/")):
- image = Image.open("./leaves_examples/"+pic)
-
- st.image(image, caption=pic.split(".")[0],width=100)
-
- ax=plt.subplot(2, 19, i+1)
+ #ax=plt.subplot(2, 19, i+1)
  #st.pyplot.title(class_names[i])
  #st.pyplot.axis("off")
  #st.write(f"{pic}")
 #st.table(df)
-
+st.image(pic_list, caption=pic.split(".")[0],width=100)
 st.write('#### Enter a url or upload an image')
 st.write('For best results use images showing one leaf like the ones here: https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
 url = st.text_input("Enter Image Url:")
