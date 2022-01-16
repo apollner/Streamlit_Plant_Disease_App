@@ -58,7 +58,8 @@ st.write('### The PlantVillage dataset consist of the following 38 categories of
 plt.figure(figsize=(50, 50))
 pic_list=[]
 for pic in enumerate(os.listdir("./leaves_examples/")):
- st.image(Image.open("./leaves_examples/"+pic), caption=pic.split(".")[0],width=100)
+ image = Image.open("./leaves_examples/"+pic)
+ st.image(image, caption=pic.split(".")[0],width=100)
  
 
  #ax=plt.subplot(2, 19, i+1)
