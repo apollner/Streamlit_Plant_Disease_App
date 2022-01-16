@@ -110,7 +110,9 @@ if url:
         confidence = round(100 * j, 3)
         html_str = f"""<style>p.a {{  font: bold 20px sans-serif;}}</style><p class="a">{class_name}</p>"""
         st.markdown(html_str, unsafe_allow_html=True)
-        st.write(f"Confidence: {confidence}%")
+        html_str = f"""<style>p.a {{  font: bold 20px sans-serif;}}</style><p class="a">{confidence}%</p>"""
+        st.markdown(html_str, unsafe_allow_html=True)
+        
         
 elif upload:
   content = upload.getvalue()
