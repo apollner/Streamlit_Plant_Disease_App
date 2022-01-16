@@ -106,9 +106,9 @@ if url:
         j = d.max()
         for index,item in enumerate(d):
          if item == j:
-          class_name = class_names[index]
+          class_name = plaintxt(class_names[index])
         confidence = round(100 * j, 3)
-        st.write("#### f"Name: plaintxt(class_name)"")
+        st.write("#### class_name")
         st.write(f"Confidence: {confidence}%")
         
 elif upload:
