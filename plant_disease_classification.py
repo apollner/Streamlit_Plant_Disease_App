@@ -58,7 +58,7 @@ st.write('### The PlantVillage dataset consist of the following 38 categories of
 plt.figure(figsize=(50, 50))
 pic_list=[]
 for pic in enumerate(os.listdir("./leaves_examples/")):
- pic_list.append(Image.open("./leaves_examples/"+pic))
+ st.image(Image.open("./leaves_examples/"+pic), caption=pic.split(".")[0],width=100)
  
 
  #ax=plt.subplot(2, 19, i+1)
@@ -66,12 +66,14 @@ for pic in enumerate(os.listdir("./leaves_examples/")):
  #st.pyplot.axis("off")
  #st.write(f"{pic}")
 #st.table(df)
-st.image(pic_list, caption=pic.split(".")[0],width=100)
+
+
 st.write('#### Enter a url or upload an image')
 st.write('For best results use images showing one leaf like the ones here: https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
 url = st.text_input("Enter Image Url:")
 st.write('or')
 upload = st.file_uploader("Please Upload Image(JPG/JPEG):")
+
 if url:
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
@@ -91,6 +93,7 @@ if url:
           class_name = class_names[index]
         confidence = round(100 * j, 3)
         st.write(f"P: {class_name}.\n Confidence: {confidence}%")
+        
 elif upload:
   content = upload.getvalue()
   bytes_data = upload.read()
