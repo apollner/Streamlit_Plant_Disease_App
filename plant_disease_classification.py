@@ -8,7 +8,7 @@ from keras.preprocessing.image import img_to_array
 import numpy as np
 import tensorflow_hub as hub
 import pandas as pd
-from matplotlib import pyplot
+import matplotlib.pyplot as plt
 import os
 class_names=['Apple___Apple_scab',
  'Apple___Black_rot',
