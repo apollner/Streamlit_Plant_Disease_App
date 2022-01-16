@@ -59,6 +59,7 @@ plt.figure(figsize=(50, 50))
 pic_list=[]
 for pic in os.listdir("./leaves_examples/"):
  image = Image.open("./leaves_examples/"+pic)
+ pic_list.append(image)
  st.image(image, caption=pic.split(".")[0],width=100)
  
 
