@@ -51,7 +51,7 @@ class_names=['Apple___Apple_scab',
  'Tomato___healthy']
 
 st.write('# Welcome to the PlantVillage leaf disease classifier')
-st.write('### The PlantVillage dataset consist of the following 38 categories of plants/diseases:')
+st.write('### The PlantVillage dataset consist of the following 38 categories of plants/diseases. Following are example images:')
 
 def plaintxt(name):
  name = name.replace("___", " ")
@@ -70,8 +70,8 @@ for pic in os.listdir("./leaves_examples/"):
 
 st.image(pic_list,caption=classes,width=100)
 
-st.write('#### Enter a url or upload an image')
-st.write('For best results use images showing one leaf like the ones here: https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
+st.write('#### Google the name of one of the categories and copy/paste the image url or download/upload an image')
+st.write('Note that for good results it is necessary to use images with similar settings than the examples shown above')
 url = st.text_input("Enter Image Url:")
 st.write('or')
 upload = st.file_uploader("Please Upload Image(JPG/JPEG):")
@@ -109,14 +109,14 @@ elif upload:
   bytes_data = upload.read()
   st.image(upload)
   file = Image.open(BytesIO(content))
-  classify2 = st.button("classify image from file")
+  classify2 = st.button("classify Image from File")
   if classify2:
    classification(file)
  
 else:
     st.write("Paste Image URL or Upload Image")
   
-st.write("**_When using urls from google images beware that not always the image shown corresponds to the actual species you query_**")
+#st.write("**_When using urls from google images beware that not always the image shown corresponds to the actual species you query_**")
 
 
 
