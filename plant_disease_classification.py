@@ -71,7 +71,7 @@ for pic in os.listdir("./leaves_examples/"):
  pic=pic.split(".")[0]
  classes.append(plaintxt(pic))
 
-st.image(pic_list,caption=classes,width=50)
+st.image(pic_list,caption=classes,width=150)
 
 st.write('#### Enter a url or upload an image')
 st.write('For best results use images showing one leaf like the ones here: https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=plant_village')
