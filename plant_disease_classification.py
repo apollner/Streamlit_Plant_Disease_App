@@ -10,6 +10,7 @@ import tensorflow_hub as hub
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+import sys
 
 class_names=['Apple___Apple_scab',
  'Apple___Black_rot',
@@ -97,13 +98,18 @@ def classification(img):
         st.markdown(html_str, unsafe_allow_html=True)
  
 if url:
-    response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
-    st.image(img)
-    classify = st.button("Classify Image from URL")
-    if classify:
-     classification(img)
-        
+    try:
+     response = requests.get(url)
+     img = Image.open(BytesIO(response.content))
+     st.image(img)
+     classify = st.button("Classify Image from URL")
+     if classify:
+      classification(img)
+     break 
+    except:
+        print("Oops!", sys.exc_info()[0], "occurred.")
+        print("Next entry.")
+
 elif upload:
   content = upload.getvalue()
   bytes_data = upload.read()
