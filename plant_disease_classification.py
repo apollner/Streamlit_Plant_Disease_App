@@ -51,8 +51,8 @@ class_names=['Apple___Apple_scab',
  'Tomato___Tomato_mosaic_virus',
  'Tomato___healthy']
 
-st.write('# Welcome to the leaf disease predictor')
-st.write('### Submit an image of a plant/disease either by means of URL link or file (preferably .jpg) from one of the 38 categories shown below and see it predicts correctly what it is:')
+st.write('# Welcome to the leaf/disease predictor')
+st.write('### Submit an image of a leaf/disease below either by means of URL link or file (preferably .jpg) from one of the following 38 categories and see it predicts correctly what it is:')
 
 def plaintxt(name):
  name = name.replace("___", " ")
@@ -71,8 +71,7 @@ for pic in os.listdir("./leaves_examples/"):
 
 st.image(pic_list,caption=classes,width=100)
 
-st.write('#### Google the name of one of the categories and copy/paste the image url or download/upload an image')
-st.write('Note that for good results it is necessary to use images with similar settings than the examples shown above')
+st.write('Note that for good results it is necessary to use images with taken with similar settings than the examples shown above')
 url = st.text_input("Enter Image Url:")
 st.write('or')
 upload = st.file_uploader("Please Upload Image(JPG/JPEG):")
