@@ -105,7 +105,7 @@ if url:
   classify = st.button("Classify Image from URL")
   if classify:
    classification(img)
-  sys.exit()
+  sys.exit('try again')
  except:
   print("Oops!", sys.exc_info()[0], "occurred.")
   print("Next entry.")
