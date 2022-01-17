@@ -51,8 +51,8 @@ class_names=['Apple___Apple_scab',
  'Tomato___Tomato_mosaic_virus',
  'Tomato___healthy']
 
-st.write('# Welcome to the PlantVillage leaf disease classifier')
-st.write('### The PlantVillage dataset consist of the following 38 categories of plants/diseases. Following are example images:')
+st.write('# Welcome to the leaf disease predictor')
+st.write('### Submit an image of a plant/disease either by means of URL link or file (preferably .jpg) from one of the 38 categories shown below and see it predicts correctly what it is:')
 
 def plaintxt(name):
  name = name.replace("___", " ")
