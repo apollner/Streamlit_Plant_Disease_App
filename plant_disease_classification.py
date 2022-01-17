@@ -110,6 +110,7 @@ if url:
   st.write('# **Try another link, is preferable that it ends with .jpg**')
   
 elif upload:
+ try:
   content = upload.getvalue()
   bytes_data = upload.read()
   st.image(upload)
@@ -117,7 +118,9 @@ elif upload:
   classify2 = st.button("classify Image from File")
   if classify2:
    classification(file)
- 
+  pass
+ except:
+  st.write('# **Try another file, is preferable that it ends with .jpg**') 
 else:
     st.write("Paste Image URL or Upload Image")
   
