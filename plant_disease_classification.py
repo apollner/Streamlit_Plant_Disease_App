@@ -107,10 +107,7 @@ if url:
    classification(img)
   pass
  except:
-  st.write(<font color="red">This text is red!</font>)
-  #print("Oops!", sys.exc_info()[0], "occurred.")
-  #print("Next entry.")
-              
+  st.write('# **Try another link, is preferable that it ends with .jpg**')
 
 elif upload:
   content = upload.getvalue()
