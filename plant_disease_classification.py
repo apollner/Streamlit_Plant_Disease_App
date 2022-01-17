@@ -98,17 +98,17 @@ def classification(img):
         st.markdown(html_str, unsafe_allow_html=True)
  
 if url:
-    try:
-     response = requests.get(url)
-     img = Image.open(BytesIO(response.content))
-     st.image(img)
-     classify = st.button("Classify Image from URL")
-     if classify:
-      classification(img)
-     break 
-    except:
-        print("Oops!", sys.exc_info()[0], "occurred.")
-        print("Next entry.")
+ try:
+  response = requests.get(url)
+  img = Image.open(BytesIO(response.content))
+  st.image(img)
+  classify = st.button("Classify Image from URL")
+  if classify:
+   classification(img)
+  break 
+ except:
+  print("Oops!", sys.exc_info()[0], "occurred.")
+  print("Next entry.")
 
 elif upload:
   content = upload.getvalue()
