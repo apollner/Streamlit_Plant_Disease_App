@@ -108,7 +108,7 @@ if url:
   pass
  except:
   html_str = f"""<style>p.a {{  font: bold 20px sans-serif;}}</style><p class="a">Error: {sys.exc_info()[0]}%</p>"""
-        st.markdown(html_str, unsafe_allow_html=True
+  st.markdown(html_str, unsafe_allow_html=True
   print("Oops!", sys.exc_info()[0], "occurred.")
   print("Next entry.")
 
