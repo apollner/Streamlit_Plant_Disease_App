@@ -75,7 +75,7 @@ st.write('#### Google the name of one of the categories and copy/paste the image
 st.write('Note that for good results it is necessary to use images with similar settings than the examples shown above')
 url = st.text_input("Enter Image Url:")
 st.write('or')
-
+upload = st.file_uploader("Please Upload Image(JPG/JPEG):")
 
 mobilenet_v3 = tf.keras.models.load_model(('mobilenet_v3_large_100_224.h5'),custom_objects={'KerasLayer':hub.KerasLayer})
 
@@ -109,8 +109,6 @@ if url:
  except:
   st.write('# **Try another link, is preferable that it ends with .jpg**')
   
-upload = st.file_uploader("Please Upload Image(JPG/JPEG):")
-
 elif upload:
   content = upload.getvalue()
   bytes_data = upload.read()
