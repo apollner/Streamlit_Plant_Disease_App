@@ -107,6 +107,7 @@ if url:
    classification(img)
   pass
  except:
+  st.write('#### Error')
   print("Oops!", sys.exc_info()[0], "occurred.")
   print("Next entry.")
 
