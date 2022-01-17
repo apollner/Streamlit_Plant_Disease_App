@@ -71,7 +71,7 @@ for pic in os.listdir("./leaves_examples/"):
 
 st.image(pic_list,caption=classes,width=100)
 
-st.write('Note that for good results it is necessary to use images with taken with similar settings than the examples shown above')
+st.write('Note that for good results it is necessary to use images taken with similar settings than the examples shown above')
 url = st.text_input("Enter Image Url:")
 st.write('or')
 upload = st.file_uploader("Please Upload Image(JPG/JPEG):")
