@@ -75,7 +75,7 @@ for pic in os.listdir("./leaves_examples/"):
  
 #We print the images in rows, thanks to having put togheter in lists before
 st.image(pic_list,caption=classes,width=100)
-[this is a text link](upload://7FxfXwDqJIZdYJ2QYADywvNRjB.png)
+st.markdown([this a text link](upload://7FxfXwDqJIZdYJ2QYADywvNRjB.png))
 
 st.write('Note that for good results it is necessary to use images taken with similar settings than the examples shown above')
 url = st.text_input("Enter Image Url:")
